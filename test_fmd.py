@@ -22,7 +22,9 @@ args = parser.parse_args()
 
 """ Re-create the model and load the weights """
 
-model = gaussian_blindspot_network((512, 512, 1),'uncalib')
+# model = gaussian_blindspot_network((512, 512, 1),'uncalib')
+model = gaussian_blindspot_network((512, 512, 1),args.mode)
+# model = gaussian_blindspot_network((args.crop, args.crop, 1),args.mode,args.reg)
 
 if args.mode == 'uncalib' or args.mode == 'mse':
     weights_path = 'weights/weights.%s.%s.latest.hdf5'%(args.dataset,args.mode)
